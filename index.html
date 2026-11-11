@@ -535,6 +535,110 @@
   .detail-page video{background:#0F1012;}
   .detail-page-head{max-width:860px; margin:40px auto 14px;}
   .detail-page-head h3{font-size:22px; font-weight:700; letter-spacing:-0.01em; margin:0;}
+
+  /* ---------- 3D TPE vehicle selector ---------- */
+  .vs-banner{position:relative; overflow:hidden; display:flex; align-items:center; justify-content:space-between; gap:20px;
+    margin:22px 0 18px; padding:30px 32px; border-radius:24px; color:#fff;
+    background:linear-gradient(120deg,#0B3D91 0%,#0070E0 55%,#2A96FF 100%); box-shadow:0 20px 40px -18px rgba(0,80,200,.55);}
+  .vs-banner:after{content:''; position:absolute; right:-60px; top:-60px; width:240px; height:240px; border-radius:50%; background:rgba(255,255,255,.08);}
+  .vs-banner-txt{position:relative; z-index:1; max-width:560px;}
+  .vs-banner-eb{display:inline-block; font-size:12px; font-weight:800; letter-spacing:.06em; background:#FFD43B; color:#1D1D1F; padding:5px 10px; border-radius:6px;}
+  .vs-banner h3{font-size:clamp(24px,4.4vw,34px); line-height:1.22; font-weight:800; letter-spacing:-.02em; margin:14px 0 10px;}
+  .vs-banner p{font-size:14.5px; line-height:1.55; margin:0 0 18px; color:rgba(255,255,255,.88);}
+  .vs-banner-btn{display:inline-flex; align-items:center; gap:8px; border:0; cursor:pointer; font:inherit; font-size:16px; font-weight:800;
+    background:#fff; color:#0B3D91; padding:14px 22px; border-radius:980px; box-shadow:0 6px 16px rgba(0,0,0,.18); animation:vsPulse 2.2s ease-in-out infinite;}
+  .vs-banner-btn svg{width:16px; height:16px;}
+  @keyframes vsPulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .vs-banner-art{position:relative; z-index:1; flex:0 0 auto; width:120px; height:120px; border-radius:28px; background:rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center;}
+  .vs-banner-art svg{width:72px; height:72px; color:#fff;}
+  @media (max-width:560px){ .vs-banner{padding:24px 20px;} .vs-banner-art{display:none;} .vs-banner-btn{width:100%; justify-content:center;} }
+
+  .vs{background:var(--surface); border-radius:22px; box-shadow:var(--shadow-sm); padding:24px; margin-bottom:28px; scroll-margin-top:84px;}
+  .vs-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:16px;}
+  .vs-head h3{font-size:22px; font-weight:800; letter-spacing:-.01em; margin:0;}
+  .vs-steps{display:flex; gap:6px; list-style:none; margin:0; padding:0; counter-reset:s;}
+  .vs-steps li{counter-increment:s; font-size:12px; font-weight:700; color:var(--muted); background:var(--surface-2); padding:6px 10px; border-radius:980px;}
+  .vs-steps li:before{content:counter(s) '. ';}
+  .vs-steps li.on{background:var(--accent); color:var(--accent-ink);}
+  .vs-steps li.done{background:var(--accent-soft); color:var(--accent);}
+  .vs-search{display:flex; align-items:center; gap:10px; background:var(--surface-2); border-radius:14px; padding:0 14px; margin-bottom:14px;}
+  .vs-search svg{width:18px; height:18px; color:var(--muted); flex:0 0 auto;}
+  .vs-search input{flex:1; border:0; background:transparent; font:inherit; font-size:15px; color:var(--ink); padding:14px 0; outline:none; min-width:0;}
+  .vs-tabs{display:grid; grid-template-columns:1fr 1fr; gap:6px; background:var(--surface-2); padding:5px; border-radius:14px; margin-bottom:16px;}
+  .vs-tabs button{border:0; cursor:pointer; font:inherit; font-size:15px; font-weight:700; color:var(--muted); background:transparent; padding:11px; border-radius:10px;}
+  .vs-tabs button span{font-size:12px; opacity:.7; margin-left:2px;}
+  .vs-tabs button.on{background:var(--surface); color:var(--ink); box-shadow:var(--shadow-sm);}
+  .vs-brand{border:1px solid var(--line); border-radius:16px; margin-bottom:10px; overflow:hidden;}
+  .vs-brand-head{width:100%; display:flex; align-items:center; gap:12px; border:0; cursor:pointer; font:inherit; color:var(--ink); background:var(--surface); padding:14px 16px; text-align:left;}
+  .vs-brand-head b{font-size:16px; font-weight:800;}
+  .vs-count{font-size:12.5px; color:var(--muted); font-weight:600; margin-left:auto;}
+  .vs-chev{width:16px; height:16px; color:var(--muted); transition:transform .2s ease; flex:0 0 auto;}
+  .vs-brand.open > .vs-brand-head .vs-chev, .vs-model.sel > .vs-model-head .vs-chev{transform:rotate(180deg);}
+  .vs-logo{width:56px; height:40px; flex:0 0 auto; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:10px; border:1px solid rgba(0,0,0,.06); overflow:hidden;}
+  .vs-logo img{max-width:40px; max-height:28px; width:auto; height:auto; object-fit:contain;}
+  .vs-logo-badge{font-size:11px; font-weight:900; color:#1D1D1F; letter-spacing:.02em; text-align:center; line-height:1.15; word-break:keep-all;}
+  .vs-models{display:none; padding:4px 12px 12px; background:var(--surface-2);}
+  .vs-brand.open .vs-models{display:block;}
+  .vs-model{background:var(--surface); border-radius:12px; margin-top:8px; overflow:hidden;}
+  .vs-model.sel{box-shadow:0 0 0 2px var(--accent) inset;}
+  .vs-model-head{width:100%; display:flex; align-items:center; gap:10px; border:0; cursor:pointer; font:inherit; color:var(--ink); background:transparent; padding:13px 14px; text-align:left;}
+  .vs-model-name{font-size:15px; font-weight:700; white-space:nowrap; flex:0 0 auto;}
+  .vs-model-meta{font-size:12px; color:var(--muted); margin-left:auto; text-align:right;}
+  .vs-variants{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding:0 10px 12px;}
+  @media (max-width:560px){ .vs-variants{grid-template-columns:1fr;} }
+  .vs-variant{display:flex; flex-direction:column; gap:7px; text-align:left; border:1px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; cursor:pointer; border-radius:12px; padding:12px 13px; transition:border-color .15s ease, transform .15s ease;}
+  .vs-variant:hover{border-color:var(--accent); transform:translateY(-1px);}
+  .vs-variant.na{opacity:.55; cursor:not-allowed;}
+  .vs-v-top{display:flex; align-items:center; gap:6px;}
+  .vs-v-year{font-size:12px; font-weight:800; color:var(--accent); background:var(--accent-soft); padding:3px 8px; border-radius:6px;}
+  .vs-v-name{font-size:14.5px; font-weight:700; line-height:1.4;}
+  .vs-v-chips{display:flex; flex-wrap:wrap; gap:5px;}
+  .vs-chip{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:700; color:var(--ink); background:var(--surface-2); padding:3px 8px; border-radius:980px;}
+  .vs-chip i{width:9px; height:9px; border-radius:50%; display:block;}
+  .vs-chip.off{color:var(--muted); text-decoration:line-through; text-decoration-color:rgba(0,0,0,.25);}
+  .vs-tag{font-size:11px; font-weight:800; padding:3px 7px; border-radius:6px;}
+  .vs-tag.gray{background:var(--surface-2); color:var(--muted);}
+  .vs-v-note{font-size:12px; color:var(--muted); line-height:1.5;}
+  .vs-v-cta{font-size:12.5px; font-weight:800; color:var(--accent); margin-top:2px;}
+  .vs-empty{font-size:14px; color:var(--muted); text-align:center; padding:24px 0;}
+  .vs-upcoming{display:flex; flex-wrap:wrap; gap:6px 10px; align-items:baseline; font-size:13px; color:var(--muted); background:var(--surface-2); border-radius:12px; padding:12px 14px; margin-top:14px;}
+  .vs-upcoming b{color:var(--ink); font-size:13px;}
+  .vs-foot{font-size:12.5px; color:var(--muted); margin:12px 0 0;}
+
+  .vs-sheet[hidden]{display:none;}
+  .vs-sheet{position:fixed; inset:0; z-index:60; display:flex; align-items:flex-end; justify-content:center;}
+  .vs-sheet-bg{position:absolute; inset:0; background:rgba(0,0,0,.45);}
+  .vs-sheet-panel{position:relative; width:100%; max-width:620px; max-height:92vh; overflow-y:auto; background:var(--surface); color:var(--ink);
+    border-radius:22px 22px 0 0; padding:18px 20px calc(20px + env(safe-area-inset-bottom)); box-shadow:0 -10px 40px rgba(0,0,0,.25);}
+  @media (min-width:700px){ .vs-sheet{align-items:center;} .vs-sheet-panel{border-radius:22px;} }
+  .vs-sheet-top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;}
+  .vs-x{border:0; background:var(--surface-2); width:36px; height:36px; border-radius:50%; cursor:pointer; color:var(--ink); display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  .vs-x svg{width:14px; height:14px;}
+  .vs-sel{display:flex; align-items:center; gap:12px; background:var(--surface-2); border-radius:14px; padding:12px; margin-bottom:12px;}
+  .vs-sel-b{font-size:12.5px; color:var(--muted); font-weight:700;}
+  .vs-sel-n{font-size:16px; font-weight:800; line-height:1.35;}
+  .vs-notice{display:flex; flex-direction:column; gap:4px; font-size:13px; line-height:1.55; background:#FFF8E1; color:#5C4300; border-radius:12px; padding:12px 14px; margin-bottom:14px;}
+  .vs-notice b{font-size:12.5px;}
+  .vs-field{margin-bottom:14px;}
+  .vs-field label, .vs-lab{display:block; font-size:13.5px; font-weight:800; margin-bottom:8px;}
+  .vs-field em{font-style:normal; font-size:11px; font-weight:800; color:#D93025; margin-left:4px;}
+  .vs-field input{width:100%; box-sizing:border-box; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:12px; padding:13px 14px; font:inherit; font-size:15px;}
+  .vs-field input:focus{outline:2px solid var(--accent); outline-offset:-1px;}
+  .vs-opts{display:flex; flex-wrap:wrap; gap:7px;}
+  .vs-opt{border:1px solid var(--line); background:var(--surface); color:var(--ink); font:inherit; font-size:14px; font-weight:700; padding:10px 14px; border-radius:10px; cursor:pointer; min-height:44px;}
+  .vs-opt.on{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
+  .vs-opt:disabled{opacity:.4; cursor:not-allowed; text-decoration:line-through;}
+  .vs-hint{font-size:12.5px; color:var(--muted); line-height:1.55; margin:0 0 8px;}
+  .vs-preview{background:var(--surface-2); border-radius:12px; padding:12px 14px; margin:6px 0 10px;}
+  .vs-preview-h{font-size:12px; font-weight:800; color:var(--muted); margin-bottom:6px;}
+  .vs-preview pre{margin:0; white-space:pre-wrap; word-break:keep-all; font:inherit; font-size:13px; line-height:1.6; color:var(--ink);}
+  .vs-miss{font-size:12.5px; font-weight:700; color:#D93025; margin:0 0 10px;}
+  .vs-kakao{width:100%; display:flex; align-items:center; justify-content:center; gap:8px; border:0; cursor:pointer; font:inherit; font-size:16px; font-weight:800;
+    background:#FEE500; color:#191919; padding:16px; border-radius:14px;}
+  .vs-kakao svg{width:20px; height:20px;}
+  .vs-help{font-size:12px; color:var(--muted); line-height:1.55; margin:10px 0 0; text-align:center;}
+  .vs-toast{position:fixed; left:50%; bottom:28px; transform:translate(-50%,20px); opacity:0; pointer-events:none; z-index:70; background:#1D1D1F; color:#fff; font-size:14px; font-weight:600; padding:12px 18px; border-radius:12px; transition:all .25s ease; max-width:90vw; text-align:center;}
+  .vs-toast.on{opacity:1; transform:translate(-50%,0);}
 </style>
 
 <div class="shell">
@@ -574,7 +678,7 @@
   </a>
 </nav>
 
-<script id="catalog-data" type="application/json">{"brand": "AUTO C&C", "brandKo": "오토씨앤씨", "heroTitle": "고객님께 드리는 프리미엄 선물,\n오토씨앤씨 카매트 컬렉션", "heroSub": "차량 인도 시 고객 선물용으로 인기 있는 카매트를 한 곳에서 확인하세요.\n카테고리를 눌러 두께·색상·디자인별 상세 이미지를 살펴보실 수 있습니다.", "kakaoChatUrl": "http://pf.kakao.com/_EiXExj/chat", "phone": "070-7119-6500", "board": {"notices": [{"title": "추석 연휴 배송 일정 안내", "date": "2026.09.14", "body": "추석 연휴 배송일정 안내드립니다. 9월 22일 오후 4시 30분까지 당일 출고 되며, 이후 주문건은 9월 28일부터 순차적으로 제작 후 발송됩니다. 넉넉하고 행복한 한가위 되십시오."}], "blogLinks": [{"title": "오토씨앤씨 네이버 블로그", "url": "https://blog.naver.com/autocnc1"}]}, "categories": [{"id": "coil-basic", "name": "일반 코일매트", "tagline": "취향에 맞춰 고르는 데일리 코일매트", "cover": "images/8dcc1a8c5db4.jpg", "tileColor": "#E7E9EA", "specs": [{"label": "두께", "value": "18mm / 23mm — 2종 중 선택"}, {"label": "색상", "value": "블랙 · 그레이 · 커피 · 베이지 · 레드 (5colors)"}, {"label": "시그니처 요소", "value": "특허 디자인 힐패드 '에스투패드' 기본 적용"}], "features": [{"icon": "check", "label": "특허 디자인", "desc": "자사 디자인 특허를 획득한 시그니처 힐패드를 기본 적용합니다."}, {"icon": "layers", "label": "2종 두께", "desc": "차량 환경에 맞춰 18mm · 23mm 중 선택할 수 있습니다."}, {"icon": "palette", "label": "5가지 컬러", "desc": "인테리어 분위기에 맞춰 고르는 데일리 컬러 구성입니다."}], "heelPad": {"title": "시그니처 힐패드 '에스투패드'", "desc": "자사 디자인 특허를 받은 운전석 발 뒤꿈치 보호패드로, 코일매트 색상에 맞춰 아래와 같이 매칭되어 장착됩니다.", "pairs": [{"mats": [{"name": "블랙", "hex": "#242424"}, {"name": "그레이", "hex": "#8b8f89"}], "pads": [{"name": "블랙", "hex": "#242424"}, {"name": "그레이", "hex": "#9a9a92"}]}, {"mats": [{"name": "커피", "hex": "#5b4636"}, {"name": "베이지", "hex": "#d8c3a0"}, {"name": "레드", "hex": "#7a2222"}], "pads": [{"name": "브라운", "hex": "#6b4a34"}, {"name": "베이지", "hex": "#cbb389"}]}]}, "products": [{"id": "black", "name": "블랙", "hex": "#242424", "thumb": "images/0118e28ee8a0.jpg", "detail": "images/7e3fba81fd44.jpg"}, {"id": "red", "name": "레드", "hex": "#7a2222", "thumb": "images/e03a6776df65.jpg", "detail": "images/71b866eda27d.jpg"}, {"id": "coffee", "name": "커피", "hex": "#5b4636", "thumb": "images/7d0301bb735a.jpg", "detail": "images/d85e28b60525.jpg"}, {"id": "gray", "name": "그레이", "hex": "#8b8f89", "thumb": "images/bf955d915cad.jpg", "detail": "images/6d0985904e1b.jpg"}, {"id": "beige", "name": "베이지", "hex": "#d8c3a0", "thumb": "images/cae75a7b1cc0.jpg", "detail": "images/630032bcabd2.jpg"}]}, {"id": "coil-hd", "name": "고밀도 디자인 코일매트", "tagline": "패턴이 살아있는 인테리어, 한 뼘 더 고급스럽게", "cover": "images/92da1c55c5cf.jpg", "tileColor": "#E9E6F1", "specs": [{"label": "두께", "value": "13mm — 코일을 압축한 슬림 설계"}, {"label": "밀도", "value": "일반 코일매트 대비 2배 이상"}, {"label": "디자인", "value": "다이아 · 스타 · 퀄팅 · 체커 · 무지 (5종)"}, {"label": "색상", "value": "블랙 · 그레이 · 브라운 (체커는 그레이 단독)"}], "features": [{"icon": "check", "label": "뛰어난 내구성", "desc": "코일을 압축한 고밀도 원단으로 오래 사용해도 형태가 유지됩니다."}, {"icon": "layers", "label": "13mm 슬림 설계", "desc": "두께는 줄이고 밀도는 높여 장착이 한결 수월합니다."}, {"icon": "grid", "label": "패턴 인테리어", "desc": "다이아 · 스타 · 퀄팅 패턴으로 실내 분위기를 연출합니다."}, {"icon": "square", "label": "무지 제작 가능", "desc": "패턴 없는 단색 디자인도 주문 제작이 가능합니다."}], "groupOrder": [{"id": "diamond", "label": "다이아"}, {"id": "star", "label": "스타"}, {"id": "quilting", "label": "퀄팅"}, {"id": "checker", "label": "체커"}, {"id": "plain", "label": "무지"}], "products": [{"id": "diamond-black", "name": "다이아 블랙", "group": "diamond", "hex": "#242424", "thumb": "images/aff0c83d2ec9.jpg", "detail": "images/dc394b4f8825.jpg", "gallery": ["images/225d1e241828.jpg", "images/3a1a7d898933.jpg", "images/6324d4d1c978.jpg"]}, {"id": "diamond-gray", "name": "다이아 그레이", "group": "diamond", "hex": "#8b8f89", "thumb": "images/b90dbb4cd589.jpg", "detail": "images/719b1e2fc773.jpg", "gallery": ["images/23f4c80d8e96.jpg", "images/b1a72c58b228.jpg"]}, {"id": "diamond-brown", "name": "다이아 브라운", "group": "diamond", "hex": "#6b4a34", "thumb": "images/b22039e88656.jpg", "detail": "images/42327ef57d77.jpg", "gallery": ["images/7d8bc646050b.jpg", "images/a06ff368bd35.jpg", "images/7e128b2c7580.jpg"]}, {"id": "star-black", "name": "스타 블랙", "group": "star", "hex": "#242424", "thumb": "images/816378665a6c.jpg", "detail": "images/9b60544eb641.jpg", "gallery": ["images/33faae251e76.jpg", "images/c102c5c24557.jpg", "images/abdf1802c70d.jpg"]}, {"id": "star-gray", "name": "스타 그레이", "group": "star", "hex": "#8b8f89", "thumb": "images/f8b2ab01be6a.jpg", "detail": "images/d7676b07272e.jpg", "gallery": ["images/34872770404a.jpg"]}, {"id": "star-brown", "name": "스타 브라운", "group": "star", "hex": "#6b4a34", "thumb": "images/85ecaee3642b.jpg", "detail": "images/669a9c6dfbbd.jpg", "gallery": ["images/2dc90083bfcf.jpg", "images/314264a853c7.jpg", "images/aa3a952d1315.jpg"]}, {"id": "quilting-black", "name": "퀄팅 블랙", "group": "quilting", "hex": "#242424", "thumb": "images/61a239d6f43d.jpg", "detail": "images/aaa05412672e.jpg", "gallery": ["images/d6bc76874abc.jpg", "images/d5e8746524eb.jpg", "images/ed19b1ce9ecb.jpg"]}, {"id": "quilting-gray", "name": "퀄팅 그레이", "group": "quilting", "hex": "#8b8f89", "thumb": "images/b290bd7e0d30.jpg", "detail": "images/5d899f5f7c19.jpg", "gallery": ["images/8056dd88784e.jpg", "images/521e7b024e39.jpg", "images/5ce4caa67638.jpg"]}, {"id": "quilting-brown", "name": "퀄팅 브라운", "group": "quilting", "hex": "#6b4a34", "thumb": "images/c36ab98958c8.jpg", "detail": "images/3213e4dae790.jpg", "gallery": ["images/352bdd725d72.jpg", "images/cb652922dab3.jpg", "images/689a281a1594.jpg", "images/a091c7868b65.jpg"]}, {"id": "checker-gray", "name": "체커 그레이", "group": "checker", "hex": "#8b8f89", "status": "available", "thumb": "images/58db0b7ebbca.jpg", "detail": "images/1da58d9af938.jpg", "gallery": ["images/6471d8c12100.jpg", "images/cae04920d66d.jpg"]}, {"id": "plain-black", "name": "무지 블랙", "group": "plain", "hex": "#242424", "thumb": "images/476cd1af28a9.jpg", "detail": "images/9fbd3e133ef2.jpg"}, {"id": "plain-gray", "name": "무지 그레이", "group": "plain", "hex": "#8b8f89", "thumb": "images/4b108b58a364.jpg", "detail": "images/11f9d827990e.jpg", "gallery": ["images/5dac90c80a13.jpg", "images/6ecd280bcee5.jpg", "images/4896dabb050f.jpg"]}, {"id": "plain-brown", "name": "무지 브라운", "group": "plain", "hex": "#6b4a34", "thumb": "images/988c284e2fcc.jpg", "detail": "images/1fec85b89bdb.jpg", "gallery": ["images/3a6113ad7ef1.jpg", "images/d1b7be3066e3.jpg"]}]}, {"id": "embossed", "name": "엠보싱 카매트", "tagline": "얇고 가볍게, 관리는 더 쉽게", "cover": "images/7ac054b2e142.jpg", "tileColor": "#E6EFE8", "specs": [{"label": "소재", "value": "PVC"}, {"label": "구조", "value": "엠보싱 요철 구조 — 먼지 · 모래 · 액체 포집"}, {"label": "색상", "value": "블랙 · 브라운 (2colors)"}, {"label": "시그니처 요소", "value": "발 뒤꿈치 보호패드 추가 장착"}], "features": [{"icon": "droplet", "label": "PVC 내구성", "desc": "내구성이 좋은 PVC 소재로 제작되어 오래 사용할 수 있습니다."}, {"icon": "grid", "label": "엠보싱 포집 구조", "desc": "먼지 · 모래 · 액체를 표면 아래로 가둬 청소가 한결 쉽습니다."}, {"icon": "layers", "label": "슬림 장착", "desc": "두께가 얇아 시트 하부 공간이 좁은 차량에도 잘 맞습니다."}, {"icon": "check", "label": "시그니처 힐패드", "desc": "타사와 달리 발 뒤꿈치 보호패드를 추가로 장착한 시그니처 디자인입니다."}], "products": [{"id": "brown", "name": "브라운", "hex": "#6b4a34", "thumb": "images/ad391e26ff90.jpg", "detail": "images/fe20b7b197c8.jpg", "gallery": ["images/dffc84e416e5.jpg", "images/19672ab6db5d.jpg", "images/e47ee1a93c5d.jpg", "images/442f3194da32.jpg", "images/fd11c8182555.jpg", "images/9cbff6428355.jpg", "images/017eec5ee4d4.jpg"]}, {"id": "black", "name": "블랙", "hex": "#242424", "thumb": "images/d2135d655490.jpg", "detail": "images/72f5351f5613.jpg", "gallery": ["images/dffc84e416e5.jpg", "images/19672ab6db5d.jpg", "images/e47ee1a93c5d.jpg", "images/442f3194da32.jpg", "images/fd11c8182555.jpg", "images/9cbff6428355.jpg", "images/017eec5ee4d4.jpg"]}], "detailPage": ["embossing/01_hero.jpg", "embossing/02_checkpoint.jpg", "embossing/03_point01.jpg", "embossing/04_point02.jpg", "embossing/05_point03.jpg", "embossing/06_point04.jpg", "embossing/07_point05_title.jpg", "embossing/08_point05_gif.gif", "embossing/09_point06_title.jpg", "embossing/10_point06_gif1.gif", "embossing/11_point06_gif2.gif", "embossing/12_set.jpg", "embossing/13_color.jpg", "embossing/14_heelpad.jpg", "embossing/15_trap_title.jpg", "embossing/16_trap_dust.gif", "embossing/17_trap_liquid.gif", "embossing/17b_slope_water_test.mp4", "embossing/18_care_title.jpg", "embossing/19_care_gif1.gif", "embossing/20_care_gif2.gif", "embossing/21_care_bottom.jpg", "embossing/21b_feature_reel.mp4", "embossing/22_delivery.jpg", "embossing/23_product_info.jpg", "embossing/24_notice.jpg"], "heelPad": {"title": "원단 컬러에 맞춘 운전석 힐패드 (추가 상품)", "desc": "추가 상품으로 선택하시면 매트 컬러에 맞는 힐패드를 운전석에 설치해 드립니다.", "pairs": [{"mats": [{"name": "블랙", "hex": "#242424"}], "pads": [{"name": "그레이", "hex": "#6E7175"}]}, {"mats": [{"name": "브라운", "hex": "#6b4a34"}], "pads": [{"name": "베이지", "hex": "#D9C4A3"}]}]}}, {"id": "tpe3d", "name": "3D TPE 카매트", "tagline": "전차종 맞춤 제작 가능한 3D TPE 카매트", "cover": "images/01a7d5984d17.jpg", "tileColor": "#DFEBFA", "specs": [{"label": "소재", "value": "TPE (Thermoplastic Elastomer)"}, {"label": "설계", "value": "차종별 전용 3D 설계"}, {"label": "대응 차종", "value": "재고 보유 차종에 한해 주문 가능 (하단 확인)"}], "features": [{"icon": "car", "label": "차종 전용 설계", "desc": "차량 바닥 구조에 맞춘 딱 맞는 3D 핏으로 제작됩니다."}, {"icon": "feather", "label": "가볍고 튼튼", "desc": "가벼운 TPE 소재로 내구성과 경량성을 동시에 확보했습니다."}, {"icon": "droplet", "label": "간편한 청소", "desc": "물로 헹궈내는 것만으로 간편하게 관리할 수 있습니다."}, {"icon": "check", "label": "완벽한 가장자리 차단", "desc": "매트 가장자리까지 감싸 오염물이 시트 안쪽으로 들어가지 못합니다."}], "products": [{"id": "main", "name": "3D TPE 카매트", "thumb": "images/e1c3c40a2af4.jpg", "detail": "images/f59483d4dfaa.jpg", "vehicleGroups": [{"brand": "현대", "models": ["디올뉴그랜저", "디올뉴산타페MX5 가솔린", "디올뉴산타페MX5 하이브리드", "아이오닉6(고O)", "신형투싼NX4 가솔린", "신형투싼NX4 하이브리드", "더뉴팰리세이드 하이브리드 9인승"]}, {"brand": "제네시스", "models": ["올뉴G80", "GV80", "GV70"]}, {"brand": "기아", "models": ["K8 하이브리드", "EV3", "EV4", "EV5", "EV6", "디올뉴셀토스 가솔린", "디올뉴셀토스 하이브리드", "타스만", "올뉴스포티지 하이브리드", "올뉴스포티지 가솔린", "신형소렌토MQ4 하이브리드", "신형소렌토MQ4 가솔린", "구형 셀토스"]}, {"brand": "르노", "models": ["콜레오스/필랑트"]}, {"brand": "테슬라", "models": ["테슬라Y", "테슬라Y 롱바디"]}], "tall": true}]}, {"id": "honeycomb", "name": "벌집매트", "tagline": "분리 세척되는 초경량 매트", "cover": "images/e7a9913e39dc.jpg", "tileColor": "#F5EEE1", "specs": [{"label": "소재", "value": "EVA (초경량)"}, {"label": "구조", "value": "2중 구조 — 상판 · 하판 분리 세척"}, {"label": "차종 대응", "value": "전차종 제작 가능"}], "features": [{"icon": "layers", "label": "2중 분리 구조", "desc": "상판과 하판을 분리해 각각 세척할 수 있습니다."}, {"icon": "feather", "label": "EVA 초경량", "desc": "가벼운 소재로 탈부착과 세척이 편리합니다."}, {"icon": "car", "label": "전차종 제작", "desc": "차종 제한 없이 주문 제작이 가능합니다."}], "note": "가볍고 세척이 쉬운 대신, 내구성은 다른 라인 대비 다소 약한 편입니다.", "products": [{"id": "main", "name": "벌집카매트", "thumb": "images/2e30dca8f6cd.jpg", "detail": "images/e7a9913e39dc.jpg", "gallery": ["images/245f745ec9b0.jpg"]}]}, {"id": "etc", "name": "기타용품", "tagline": "라인업을 채워가는 중입니다", "cover": "images/7688410571fc.jpg", "tileColor": "#ECECEE", "products": [{"id": "duster", "name": "먼지털이개", "status": "available", "tall": true, "specs": [{"label": "소재", "value": "양모(Wool) 파이버"}, {"label": "크기", "value": "전장 16cm · 손잡이 10cm — 콤팩트 사이즈"}, {"label": "용도", "value": "송풍구 · 대시보드 등 차량 내부 먼지 제거"}], "thumb": "images/e239cf80c73c.jpg", "detail": "images/c045a5894d8a.jpg"}, {"id": "towel", "name": "세차 타올", "status": "available", "tall": true, "specs": [{"label": "소재", "value": "마이크로파이버"}, {"label": "크기", "value": "160 x 60cm — 특대형 사이즈"}, {"label": "색상", "value": "퍼플 · 브라운 · 블루 (3colors)"}, {"label": "용도", "value": "본네트 · 지붕 · 트렁크 등 넓은 면적 물기 제거"}], "thumb": "images/ec0185ebe1a0.jpg", "detail": "images/9dc65134ccf6.jpg"}, {"id": "wiper", "name": "와이퍼", "status": "preparing"}, {"id": "neckpillow", "name": "목베개", "status": "preparing"}, {"id": "plate", "name": "차량용 핸드폰 번호판", "status": "preparing"}]}]}</script>
+<script id="catalog-data" type="application/json">{"brand": "AUTO C&C", "brandKo": "오토씨앤씨", "heroTitle": "고객님께 드리는 프리미엄 선물,\n오토씨앤씨 카매트 컬렉션", "heroSub": "차량 인도 시 고객 선물용으로 인기 있는 카매트를 한 곳에서 확인하세요.\n카테고리를 눌러 두께·색상·디자인별 상세 이미지를 살펴보실 수 있습니다.", "kakaoChatUrl": "http://pf.kakao.com/_EiXExj/chat", "phone": "070-7119-6500", "board": {"notices": [{"title": "추석 연휴 배송 일정 안내", "date": "2026.09.14", "body": "추석 연휴 배송일정 안내드립니다. 9월 22일 오후 4시 30분까지 당일 출고 되며, 이후 주문건은 9월 28일부터 순차적으로 제작 후 발송됩니다. 넉넉하고 행복한 한가위 되십시오."}], "blogLinks": [{"title": "오토씨앤씨 네이버 블로그", "url": "https://blog.naver.com/autocnc1"}]}, "categories": [{"id": "coil-basic", "name": "일반 코일매트", "tagline": "취향에 맞춰 고르는 데일리 코일매트", "cover": "images/8dcc1a8c5db4.jpg", "tileColor": "#E7E9EA", "specs": [{"label": "두께", "value": "18mm / 23mm — 2종 중 선택"}, {"label": "색상", "value": "블랙 · 그레이 · 커피 · 베이지 · 레드 (5colors)"}, {"label": "시그니처 요소", "value": "특허 디자인 힐패드 '에스투패드' 기본 적용"}], "features": [{"icon": "check", "label": "특허 디자인", "desc": "자사 디자인 특허를 획득한 시그니처 힐패드를 기본 적용합니다."}, {"icon": "layers", "label": "2종 두께", "desc": "차량 환경에 맞춰 18mm · 23mm 중 선택할 수 있습니다."}, {"icon": "palette", "label": "5가지 컬러", "desc": "인테리어 분위기에 맞춰 고르는 데일리 컬러 구성입니다."}], "heelPad": {"title": "시그니처 힐패드 '에스투패드'", "desc": "자사 디자인 특허를 받은 운전석 발 뒤꿈치 보호패드로, 코일매트 색상에 맞춰 아래와 같이 매칭되어 장착됩니다.", "pairs": [{"mats": [{"name": "블랙", "hex": "#242424"}, {"name": "그레이", "hex": "#8b8f89"}], "pads": [{"name": "블랙", "hex": "#242424"}, {"name": "그레이", "hex": "#9a9a92"}]}, {"mats": [{"name": "커피", "hex": "#5b4636"}, {"name": "베이지", "hex": "#d8c3a0"}, {"name": "레드", "hex": "#7a2222"}], "pads": [{"name": "브라운", "hex": "#6b4a34"}, {"name": "베이지", "hex": "#cbb389"}]}]}, "products": [{"id": "black", "name": "블랙", "hex": "#242424", "thumb": "images/0118e28ee8a0.jpg", "detail": "images/7e3fba81fd44.jpg"}, {"id": "red", "name": "레드", "hex": "#7a2222", "thumb": "images/e03a6776df65.jpg", "detail": "images/71b866eda27d.jpg"}, {"id": "coffee", "name": "커피", "hex": "#5b4636", "thumb": "images/7d0301bb735a.jpg", "detail": "images/d85e28b60525.jpg"}, {"id": "gray", "name": "그레이", "hex": "#8b8f89", "thumb": "images/bf955d915cad.jpg", "detail": "images/6d0985904e1b.jpg"}, {"id": "beige", "name": "베이지", "hex": "#d8c3a0", "thumb": "images/cae75a7b1cc0.jpg", "detail": "images/630032bcabd2.jpg"}]}, {"id": "coil-hd", "name": "고밀도 디자인 코일매트", "tagline": "패턴이 살아있는 인테리어, 한 뼘 더 고급스럽게", "cover": "images/92da1c55c5cf.jpg", "tileColor": "#E9E6F1", "specs": [{"label": "두께", "value": "13mm — 코일을 압축한 슬림 설계"}, {"label": "밀도", "value": "일반 코일매트 대비 2배 이상"}, {"label": "디자인", "value": "다이아 · 스타 · 퀄팅 · 체커 · 무지 (5종)"}, {"label": "색상", "value": "블랙 · 그레이 · 브라운 (체커는 그레이 단독)"}], "features": [{"icon": "check", "label": "뛰어난 내구성", "desc": "코일을 압축한 고밀도 원단으로 오래 사용해도 형태가 유지됩니다."}, {"icon": "layers", "label": "13mm 슬림 설계", "desc": "두께는 줄이고 밀도는 높여 장착이 한결 수월합니다."}, {"icon": "grid", "label": "패턴 인테리어", "desc": "다이아 · 스타 · 퀄팅 패턴으로 실내 분위기를 연출합니다."}, {"icon": "square", "label": "무지 제작 가능", "desc": "패턴 없는 단색 디자인도 주문 제작이 가능합니다."}], "groupOrder": [{"id": "diamond", "label": "다이아"}, {"id": "star", "label": "스타"}, {"id": "quilting", "label": "퀄팅"}, {"id": "checker", "label": "체커"}, {"id": "plain", "label": "무지"}], "products": [{"id": "diamond-black", "name": "다이아 블랙", "group": "diamond", "hex": "#242424", "thumb": "images/aff0c83d2ec9.jpg", "detail": "images/dc394b4f8825.jpg", "gallery": ["images/225d1e241828.jpg", "images/3a1a7d898933.jpg", "images/6324d4d1c978.jpg"]}, {"id": "diamond-gray", "name": "다이아 그레이", "group": "diamond", "hex": "#8b8f89", "thumb": "images/b90dbb4cd589.jpg", "detail": "images/719b1e2fc773.jpg", "gallery": ["images/23f4c80d8e96.jpg", "images/b1a72c58b228.jpg"]}, {"id": "diamond-brown", "name": "다이아 브라운", "group": "diamond", "hex": "#6b4a34", "thumb": "images/b22039e88656.jpg", "detail": "images/42327ef57d77.jpg", "gallery": ["images/7d8bc646050b.jpg", "images/a06ff368bd35.jpg", "images/7e128b2c7580.jpg"]}, {"id": "star-black", "name": "스타 블랙", "group": "star", "hex": "#242424", "thumb": "images/816378665a6c.jpg", "detail": "images/9b60544eb641.jpg", "gallery": ["images/33faae251e76.jpg", "images/c102c5c24557.jpg", "images/abdf1802c70d.jpg"]}, {"id": "star-gray", "name": "스타 그레이", "group": "star", "hex": "#8b8f89", "thumb": "images/f8b2ab01be6a.jpg", "detail": "images/d7676b07272e.jpg", "gallery": ["images/34872770404a.jpg"]}, {"id": "star-brown", "name": "스타 브라운", "group": "star", "hex": "#6b4a34", "thumb": "images/85ecaee3642b.jpg", "detail": "images/669a9c6dfbbd.jpg", "gallery": ["images/2dc90083bfcf.jpg", "images/314264a853c7.jpg", "images/aa3a952d1315.jpg"]}, {"id": "quilting-black", "name": "퀄팅 블랙", "group": "quilting", "hex": "#242424", "thumb": "images/61a239d6f43d.jpg", "detail": "images/aaa05412672e.jpg", "gallery": ["images/d6bc76874abc.jpg", "images/d5e8746524eb.jpg", "images/ed19b1ce9ecb.jpg"]}, {"id": "quilting-gray", "name": "퀄팅 그레이", "group": "quilting", "hex": "#8b8f89", "thumb": "images/b290bd7e0d30.jpg", "detail": "images/5d899f5f7c19.jpg", "gallery": ["images/8056dd88784e.jpg", "images/521e7b024e39.jpg", "images/5ce4caa67638.jpg"]}, {"id": "quilting-brown", "name": "퀄팅 브라운", "group": "quilting", "hex": "#6b4a34", "thumb": "images/c36ab98958c8.jpg", "detail": "images/3213e4dae790.jpg", "gallery": ["images/352bdd725d72.jpg", "images/cb652922dab3.jpg", "images/689a281a1594.jpg", "images/a091c7868b65.jpg"]}, {"id": "checker-gray", "name": "체커 그레이", "group": "checker", "hex": "#8b8f89", "status": "available", "thumb": "images/58db0b7ebbca.jpg", "detail": "images/1da58d9af938.jpg", "gallery": ["images/6471d8c12100.jpg", "images/cae04920d66d.jpg"]}, {"id": "plain-black", "name": "무지 블랙", "group": "plain", "hex": "#242424", "thumb": "images/476cd1af28a9.jpg", "detail": "images/9fbd3e133ef2.jpg"}, {"id": "plain-gray", "name": "무지 그레이", "group": "plain", "hex": "#8b8f89", "thumb": "images/4b108b58a364.jpg", "detail": "images/11f9d827990e.jpg", "gallery": ["images/5dac90c80a13.jpg", "images/6ecd280bcee5.jpg", "images/4896dabb050f.jpg"]}, {"id": "plain-brown", "name": "무지 브라운", "group": "plain", "hex": "#6b4a34", "thumb": "images/988c284e2fcc.jpg", "detail": "images/1fec85b89bdb.jpg", "gallery": ["images/3a6113ad7ef1.jpg", "images/d1b7be3066e3.jpg"]}]}, {"id": "embossed", "name": "엠보싱 카매트", "tagline": "얇고 가볍게, 관리는 더 쉽게", "cover": "images/7ac054b2e142.jpg", "tileColor": "#E6EFE8", "specs": [{"label": "소재", "value": "PVC"}, {"label": "구조", "value": "엠보싱 요철 구조 — 먼지 · 모래 · 액체 포집"}, {"label": "색상", "value": "블랙 · 브라운 (2colors)"}, {"label": "시그니처 요소", "value": "발 뒤꿈치 보호패드 추가 장착"}], "features": [{"icon": "droplet", "label": "PVC 내구성", "desc": "내구성이 좋은 PVC 소재로 제작되어 오래 사용할 수 있습니다."}, {"icon": "grid", "label": "엠보싱 포집 구조", "desc": "먼지 · 모래 · 액체를 표면 아래로 가둬 청소가 한결 쉽습니다."}, {"icon": "layers", "label": "슬림 장착", "desc": "두께가 얇아 시트 하부 공간이 좁은 차량에도 잘 맞습니다."}, {"icon": "check", "label": "시그니처 힐패드", "desc": "타사와 달리 발 뒤꿈치 보호패드를 추가로 장착한 시그니처 디자인입니다."}], "products": [{"id": "brown", "name": "브라운", "hex": "#6b4a34", "thumb": "images/ad391e26ff90.jpg", "detail": "images/fe20b7b197c8.jpg", "gallery": ["images/dffc84e416e5.jpg", "images/19672ab6db5d.jpg", "images/e47ee1a93c5d.jpg", "images/442f3194da32.jpg", "images/fd11c8182555.jpg", "images/9cbff6428355.jpg", "images/017eec5ee4d4.jpg"]}, {"id": "black", "name": "블랙", "hex": "#242424", "thumb": "images/d2135d655490.jpg", "detail": "images/72f5351f5613.jpg", "gallery": ["images/dffc84e416e5.jpg", "images/19672ab6db5d.jpg", "images/e47ee1a93c5d.jpg", "images/442f3194da32.jpg", "images/fd11c8182555.jpg", "images/9cbff6428355.jpg", "images/017eec5ee4d4.jpg"]}], "detailPage": ["embossing/01_hero.jpg", "embossing/02_checkpoint.jpg", "embossing/03_point01.jpg", "embossing/04_point02.jpg", "embossing/05_point03.jpg", "embossing/06_point04.jpg", "embossing/07_point05_title.jpg", "embossing/08_point05_gif.gif", "embossing/09_point06_title.jpg", "embossing/10_point06_gif1.gif", "embossing/11_point06_gif2.gif", "embossing/12_set.jpg", "embossing/13_color.jpg", "embossing/14_heelpad.jpg", "embossing/15_trap_title.jpg", "embossing/16_trap_dust.gif", "embossing/17_trap_liquid.gif", "embossing/17b_slope_water_test.mp4", "embossing/18_care_title.jpg", "embossing/19_care_gif1.gif", "embossing/20_care_gif2.gif", "embossing/21_care_bottom.jpg", "embossing/21b_feature_reel.mp4", "embossing/22_delivery.jpg", "embossing/23_product_info.jpg", "embossing/24_notice.jpg"], "heelPad": {"title": "원단 컬러에 맞춘 운전석 힐패드 (추가 상품)", "desc": "추가 상품으로 선택하시면 매트 컬러에 맞는 힐패드를 운전석에 설치해 드립니다.", "pairs": [{"mats": [{"name": "블랙", "hex": "#242424"}], "pads": [{"name": "그레이", "hex": "#6E7175"}]}, {"mats": [{"name": "브라운", "hex": "#6b4a34"}], "pads": [{"name": "베이지", "hex": "#D9C4A3"}]}]}}, {"id": "tpe3d", "name": "3D TPE 카매트", "tagline": "전차종 맞춤 제작 가능한 3D TPE 카매트", "cover": "images/01a7d5984d17.jpg", "tileColor": "#DFEBFA", "specs": [{"label": "소재", "value": "TPE (Thermoplastic Elastomer)"}, {"label": "설계", "value": "차종별 전용 3D 설계"}, {"label": "대응 차종", "value": "국산·수입 주요 차종 (아래에서 바로 확인)"}], "features": [{"icon": "car", "label": "차종 전용 설계", "desc": "차량 바닥 구조에 맞춘 딱 맞는 3D 핏으로 제작됩니다."}, {"icon": "feather", "label": "가볍고 튼튼", "desc": "가벼운 TPE 소재로 내구성과 경량성을 동시에 확보했습니다."}, {"icon": "droplet", "label": "간편한 청소", "desc": "물로 헹궈내는 것만으로 간편하게 관리할 수 있습니다."}, {"icon": "check", "label": "완벽한 가장자리 차단", "desc": "매트 가장자리까지 감싸 오염물이 시트 안쪽으로 들어가지 못합니다."}], "products": [{"id": "main", "name": "3D TPE 카매트", "thumb": "images/e1c3c40a2af4.jpg", "detail": "images/f59483d4dfaa.jpg", "tall": true}], "vehicleData": {"domestic": [{"brand": "현대", "groups": [{"model": "팰리세이드", "variants": [{"year": "2025+", "name": "디 올뉴 팰리세이드 (LX3) 가솔린", "black": "O", "brown": "O", "option": "7인 / 9인 <인승수 기재 필수> / <3열 추가 가능>", "trunk": "트렁크 가능 <7, 9인 호환>"}, {"year": "2025+", "name": "디 올뉴 팰리세이드 (LX3) 하이브리드", "black": "O", "brown": "7인 / X · 9인 / O", "option": "7인 / 9인 <인승수 기재 필수> / <3열 추가 가능>", "trunk": "트렁크 가능 <7, 9인 호환>"}]}, {"model": "싼타페", "variants": [{"year": "2023+", "name": "싼타페 (MX5) 가솔린", "black": "O", "brown": "O", "option": "1+2열은 인승수 관계없이 호환가능 > 5인 / 6인 / 7인 <3열 추가 가능 / 인승수 기재 필수>", "trunk": "트렁크 가능 <인승수 기재 필수>"}, {"year": "2023+", "name": "싼타페 (MX5) 하이브리드", "black": "O", "brown": "O", "option": "1+2열은 인승수 관계없이 호환가능 > 5인 / 6인 / 7인 <3열 추가 가능 / 인승수 기재 필수>", "trunk": "트렁크 가능 <인승수 기재 필수>"}]}, {"model": "그랜저", "variants": [{"year": "2022+", "name": "그랜저 (GN7) 가솔린 2륜 / 하이브리드 / <신형 페리 그랜저 호환가능>", "black": "O", "brown": "O", "option": "4륜 주문 불가", "trunk": "트렁크 가능 <LPG는 주문 불가>"}]}, {"model": "쏘나타", "variants": [{"year": "2019. 3 ~ 2023", "name": "쏘나타 (DN8) 가솔린 / LPG", "black": "O", "brown": "", "option": "2열 고리 유/무 확인 필수", "trunk": "트렁크 가능 <LPG는 주문 불가> / 연료타입 기재 필수"}, {"year": "2019. 3 ~ 2023", "name": "쏘나타 (DN8) 하이브리드", "black": "O", "brown": "", "option": "2열 고리 유/무 확인 필수", "trunk": "트렁크 가능"}, {"year": "2024~", "name": "쏘나타 (DN8) 가솔린 / LPG", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능 <LPG는 주문 불가> / 연료타입 기재 필수"}, {"year": "2024~", "name": "쏘나타 (DN8) 하이브리드", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능"}, {"year": "2019+", "name": "쏘나타 DT23 <중국산 택시>", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "아반떼", "variants": [{"year": "2015 ~ 2020", "name": "아반떼AD", "black": "O", "brown": "", "option": "", "trunk": ""}, {"year": "2020 ~ 2025", "name": "아반떼 (CN7) 가솔린", "black": "O", "brown": "", "option": "N라인 호환가능", "trunk": "트렁크 가능"}, {"year": "2020 ~ 2025", "name": "아반떼 (CN7) 하이브리드", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2026 ~", "name": "디 올 뉴 아반떼 (CN8)", "black": "O", "brown": "", "option": "가솔린 (입고 예정)", "trunk": "트렁크 가능 (2종류 : 폴딩 / 미폴딩) 입고 예정"}]}, {"model": "투싼", "variants": [{"year": "2020+", "name": "투싼 (NX4) 가솔린", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능 <스피커옵션 유/무 기재 필수>"}, {"year": "2020+", "name": "투싼 (NX4) 하이브리드", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능 <스피커옵션 유/무 기재 필수>"}]}, {"model": "코나", "variants": [{"year": "2023+", "name": "코나 가솔린", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "코나 하이브리드", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "코나 EV", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "베뉴", "variants": [{"year": "2019+", "name": "베뉴", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "넥쏘", "variants": [{"year": "2025+", "name": "넥쏘 (NH2)", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "아이오닉9", "variants": [{"year": "2025+", "name": "아이오닉9 6인 릴렉션 시트", "black": "O", "brown": "", "option": "3열까지 주문 가능 / 콘솔고정형으로 제작 / 무빙시 콘솔부위 컷팅필요 <스위블 시트 주문 불가>", "trunk": "트렁크 가능 / 6, 7인 공용 <기재 필수!! \"구형\" : 25 ~ 26년 2월 / \"신형\" : 26년 3월 ~ 현재>"}, {"year": "2025+", "name": "아이오닉9 7인", "black": "O", "brown": "", "option": "3열까지 주문 가능", "trunk": "트렁크 가능 / 6, 7인 공용 <기재 필수!! \"구형\" : 25 ~ 26년 2월 / \"신형\" : 26년 3월 ~ 현재>"}]}, {"model": "아이오닉6", "variants": [{"year": "2023 ~ 2025", "name": "구 아이오닉6", "black": "O", "brown": "", "option": "2열 고리 X", "trunk": ""}, {"year": "2026+", "name": "신 아이오닉6 PE", "black": "O", "brown": "", "option": "2열 고리 O <N / N라인 호환>", "trunk": "트렁크 가능"}]}, {"model": "아이오닉5", "variants": [{"year": "2024+", "name": "아이오닉5 콘솔 이동형", "black": "O", "brown": "", "option": "N라인 주문불가", "trunk": "트렁크 가능 (N라인 주문불가)"}, {"year": "2024+", "name": "아이오닉5 콘솔 고정형", "black": "O", "brown": "", "option": "N라인 주문불가", "trunk": "트렁크 가능 (N라인 주문불가)"}]}, {"model": "캐스퍼", "variants": [{"year": "2021+", "name": "캐스퍼 가솔린", "black": "O", "brown": "", "option": "밴 > 1열 가능", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "캐스퍼 EV", "black": "O", "brown": "", "option": "밴 > 1열 가능", "trunk": "트렁크 가능"}]}, {"model": "스타리아", "variants": [{"year": "2021+", "name": "스타리아 3밴 (LPG)", "black": "O", "brown": "", "option": "연료타입 <인승수 기재 필수> / <스타리아 EV 주문 불가>", "trunk": "트렁크 주문 불가"}, {"year": "2021+", "name": "스타리아 5밴", "black": "O", "brown": "", "option": "연료타입 <인승수 기재 필수> / <스타리아 EV 주문 불가>", "trunk": "트렁크 주문 불가"}, {"year": "2026+", "name": "스타리아 2밴 하브", "black": "O", "brown": "", "option": "가운데 의자가 없는 타입 <인승수 기재 필수>", "trunk": "트렁크 주문 불가"}, {"year": "2026+", "name": "스타리아 하브 7인 <준비중>", "black": "O", "brown": "", "option": "현재 주문 불가", "trunk": "트렁크 주문 불가"}, {"year": "", "name": "스타리아 EV", "black": "O", "brown": "", "option": "현재 주문 불가", "trunk": "트렁크 주문 불가"}, {"year": "2026+", "name": "스타리아 하브, 가솔린, 디젤, LPG 9인 투어러", "black": "O", "brown": "", "option": "2열까지만 가능 <인승수 기재 필수> / <라운지 주문 불가>", "trunk": "트렁크 주문 불가"}, {"year": "2026+", "name": "스타리아 하브, 가솔린, 디젤, LPG 11인 투어러", "black": "O", "brown": "", "option": "2열까지만 가능 <인승수 기재 필수> / <라운지 주문 불가>", "trunk": "트렁크 주문 불가"}, {"year": "", "name": "스타리아 15인", "black": "O", "brown": "", "option": "3밴 > 1열과 호환 가능", "trunk": "트렁크 주문 불가"}]}, {"model": "포터2", "variants": [{"year": "2004+", "name": "포터2", "black": "O", "brown": "", "option": "1열만", "trunk": "트렁크 주문 불가"}, {"year": "2004+", "name": "포터2 더블캡", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}]}]}, {"brand": "제네시스", "groups": [{"model": "GV70", "variants": [{"year": "2020+", "name": "GV70 가솔린 / 디젤", "black": "O", "brown": "O", "option": "", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "GV70 EV", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "GV80", "variants": [{"year": "2020+", "name": "GV80 5인 / 7인", "black": "O", "brown": "O", "option": "7인 > 3열 추가 가능", "trunk": "트렁크 가능 / 인승수 기재 필수 <GV80 5인 쿠페는 트렁크 불가>"}, {"year": "2020+", "name": "GV80 6인", "black": "O", "brown": "", "option": "6인 > 3열 추가 가능", "trunk": "트렁크 가능 / 인승수 기재 필수 <GV80 5인 쿠페는 트렁크 불가>"}]}, {"model": "G80", "variants": [{"year": "2020. 4~", "name": "G80 (RG3) 가솔린", "black": "O", "brown": "O", "option": "EV 불가", "trunk": "트렁크 가능 / 연식 기재 필수 <구형 \"오른쪽 그물망 O\" / 신형 26년형 G80 PE \"오른쪽 그물망 X\">"}]}, {"model": "G90", "variants": [{"year": "2022+", "name": "G90 (RS4) 가솔린 <5인 일반>", "black": "O", "brown": "", "option": "롱 휠 베이스 & 4인승 주문불가", "trunk": ""}]}]}, {"brand": "기아", "groups": [{"model": "쏘렌토", "variants": [{"year": "2020+", "name": "쏘렌토(MQ4) 가솔린", "black": "O", "brown": "O", "option": "1+2열은 인승수 관계없이 호환가능 > 5인 / 6인 / 7인 <3열 추가 가능 / 인승수 기재 필수>", "trunk": "트렁크 가능 / 인승수 기재 필수"}, {"year": "2020+", "name": "쏘렌토(MQ4) 하이브리드", "black": "O", "brown": "O", "option": "1+2열은 인승수 관계없이 호환가능 > 5인 / 6인 / 7인 <3열 추가 가능 / 인승수 기재 필수>", "trunk": "트렁크 가능 / 인승수 기재 필수"}]}, {"model": "스포티지", "variants": [{"year": "2021. 7 ~ 2024", "name": "스포티지 (NQ5) 가솔린 / 디젤 / LPG", "black": "O", "brown": "", "option": "2열 고리 X", "trunk": ""}, {"year": "2021. 7 ~ 2024", "name": "스포티지 (NQ5) 하이브리드", "black": "O", "brown": "", "option": "2열 고리 X", "trunk": ""}, {"year": "2025~", "name": "스포티지 (NQ5) 가솔린 / 디젤 / LPG", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능 <스피커옵션 유/무 기재 필수> (LPG 주문 불가)"}, {"year": "2025~", "name": "스포티지 (NQ5) 하이브리드", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능 <스피커옵션 유/무 기재 필수> (LPG 주문 불가)"}]}, {"model": "타스만", "variants": [{"year": "2025+", "name": "타스만", "black": "O", "brown": "", "option": "", "trunk": "적재함 가능"}]}, {"model": "K8", "variants": [{"year": "2021+", "name": "K8 (GL3) 가솔린 / LPG <2륜>", "black": "O", "brown": "O", "option": "4륜 주문 불가", "trunk": "트렁크 가능 <LPG 주문 불가>"}, {"year": "2021+", "name": "K8 (GL3) 하이브리드", "black": "O", "brown": "O", "option": "4륜 주문 불가", "trunk": "트렁크 가능"}]}, {"model": "K5", "variants": [{"year": "2019. 3 ~ 2023", "name": "K5 (DL3) 가솔린, LPG", "black": "O", "brown": "", "option": "2열 고리 유/무 확인 필수", "trunk": "트렁크 가능 <LPG는 주문 불가> / 연료타입 기재 필수"}, {"year": "2019. 3 ~ 2023", "name": "K5 (DL3) 하이브리드", "black": "O", "brown": "", "option": "2열 고리 유/무 확인 필수", "trunk": "트렁크 가능"}, {"year": "2024~", "name": "K5 (DL3) 가솔린, LPG", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능 <LPG는 주문 불가> / 연료타입 기재 필수"}, {"year": "2024~", "name": "K5 (DL3) 하이브리드", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능"}]}, {"model": "셀토스", "variants": [{"year": "2019 ~ 2025", "name": "더 뉴 셀토스 (SP2)", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능 <스피커옵션 유/무 기재 필수> / 자동 폴딩만 가능 <수동 주문 불가>"}, {"year": "2026+", "name": "디 올뉴 셀토스 (SP3) 가솔린", "black": "O", "brown": "O", "option": "X라인 호환가능", "trunk": "트렁크 가능"}, {"year": "2026+", "name": "디 올뉴 셀토스 (SP3) 하이브리드", "black": "O", "brown": "O", "option": "", "trunk": "트렁크 가능"}]}, {"model": "니로", "variants": [{"year": "2022 ~ 2025", "name": "디 올뉴 니로 (SG2) 하이브리드", "black": "O", "brown": "", "option": "2열 고리 X <EV 주문불가>", "trunk": "트렁크 가능"}, {"year": "2026 ~", "name": "더 뉴 니로 (SG2) 하이브리드 PE", "black": "O", "brown": "O", "option": "2열 고리 O", "trunk": "트렁크 가능"}]}, {"model": "모닝", "variants": [{"year": "2017. 5~", "name": "모닝", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}]}, {"model": "카니발", "variants": [{"year": "2020+", "name": "카니발 (KA4) 가솔린, 디젤 7인", "black": "O", "brown": "", "option": "각 열 당, 주문 가능 <아웃도어 주문 불가>", "trunk": "트렁크 가능 <3열 시트 폴딩하여 상부 같이 덮어집니다!> (하부 트렁크 불가)"}, {"year": "2020+", "name": "카니발 (KA4) 하이브리드 7인", "black": "O", "brown": "", "option": "각 열 당, 주문 가능 <아웃도어 주문 불가>", "trunk": "트렁크 가능 <3열 시트 폴딩하여 상부 같이 덮어집니다!> (하부 트렁크 불가)"}, {"year": "2020+", "name": "카니발 (KA4) 가솔린, 디젤 9인", "black": "O", "brown": "", "option": "각 열 당, 주문 가능 <컴포트옵션 유/무 확인 필수>", "trunk": "트렁크 가능 <3열 시트 폴딩하여 상부 같이 덮어집니다!>"}, {"year": "2020+", "name": "카니발 (KA4) 하이브리드 9인", "black": "O", "brown": "", "option": "각 열 당, 주문 가능 <컴포트옵션 유/무 확인 필수>", "trunk": "트렁크 가능 <3열 시트 폴딩하여 상부 같이 덮어집니다!>"}]}, {"model": "PV5", "variants": [{"year": "2025+", "name": "PV5 카고", "black": "O", "brown": "", "option": "1열만", "trunk": "적재함 준비중 / 현재 주문 불가"}, {"year": "2025+", "name": "PV5 패신저", "black": "O", "brown": "", "option": "", "trunk": "적재함 가능"}]}, {"model": "EV3", "variants": [{"year": "2024+", "name": "EV3", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "EV4", "variants": [{"year": "2025+", "name": "EV4", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "EV5", "variants": [{"year": "2025+", "name": "EV5", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능 <스피커옵션 유/무 기재 필수>"}]}, {"model": "EV6", "variants": [{"year": "2021+", "name": "EV6", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "EV9", "variants": [{"year": "2023+", "name": "EV9 6인 릴렉션 시트", "black": "O", "brown": "", "option": "3열까지 주문 가능 / 콘솔고정형으로 제작 / 무빙시 콘솔부위 컷팅필요 <스위블 시트 주문 불가>", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "EV9 7인", "black": "O", "brown": "", "option": "1열만 주문 가능 <현재 2, 3열은 주문 불가 / 준비중>", "trunk": "트렁크 가능"}]}, {"model": "레이", "variants": [{"year": "2011 ~", "name": "레이 가솔린", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}, {"year": "2017 ~", "name": "레이 밴", "black": "O", "brown": "", "option": "1열만", "trunk": "적재함 가능"}, {"year": "2011 ~", "name": "레이 EV", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}, {"year": "2023 ~", "name": "레이 밴 EV", "black": "O", "brown": "", "option": "1열만", "trunk": "트렁크 주문 불가"}]}, {"model": "봉고3", "variants": [{"year": "2004+", "name": "봉고3", "black": "O", "brown": "", "option": "1열만 <4륜 주문불가>", "trunk": "트렁크 주문 불가"}, {"year": "2004+", "name": "봉고3 더블캡", "black": "O", "brown": "", "option": "<4륜 주문불가>", "trunk": "트렁크 주문 불가"}]}]}, {"brand": "KGM", "groups": [{"model": "티볼리", "variants": [{"year": "2015+", "name": "티볼리 아머, 에어", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능 (에어는 주문불가)"}]}, {"model": "토레스", "variants": [{"year": "2022+", "name": "토레스 가솔린", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2025+", "name": "토레스 하이브리드", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "토레스 EV", "black": "O", "brown": "", "option": "무쏘 EV와 호환가능", "trunk": "트렁크 주문 불가"}]}, {"model": "렉스턴 스포츠", "variants": [{"year": "2019+", "name": "렉스턴 스포츠", "black": "O", "brown": "", "option": "호환가능", "trunk": "적재함 가능 <숏> 기재 필수"}, {"year": "2019+", "name": "렉스턴 스포츠 칸", "black": "O", "brown": "", "option": "호환가능", "trunk": "적재함 가능 <롱> 기재 필수"}]}, {"model": "액티언", "variants": [{"year": "2024+", "name": "액티언", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2025+", "name": "액티언 하이브리드", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "코란도", "variants": [{"year": "2019+", "name": "뷰티풀 코란도", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}]}, {"model": "무쏘 스포츠", "variants": [{"year": "2025+", "name": "무쏘 스포츠", "black": "O", "brown": "", "option": "호환가능", "trunk": "적재함 가능 <숏> 기재 필수"}, {"year": "2025+", "name": "무쏘 스포츠 칸", "black": "O", "brown": "", "option": "호환가능", "trunk": "적재함 가능 <롱> 기재 필수"}]}, {"model": "무쏘", "variants": [{"year": "2025+", "name": "무쏘 EV", "black": "O", "brown": "", "option": "토레스 EV와 호환가능", "trunk": "트렁크 주문 불가"}]}]}, {"brand": "르노", "groups": [{"model": "그랑콜레오스", "variants": [{"year": "2024+", "name": "그랑콜레오스 2륜 / 하이브리드", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2024+", "name": "그랑콜레오스 4륜", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "필랑트", "variants": [{"year": "2026+", "name": "필랑트", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "세닉", "variants": [{"year": "2026+", "name": "세닉", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "아르카나", "variants": [{"year": "2020+", "name": "아르카나 (XM3)", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}]}, {"model": "QM6", "variants": [{"year": "2016. ~", "name": "QM6", "black": "O", "brown": "", "option": "", "trunk": ""}]}]}, {"brand": "쉐보레", "groups": [{"model": "말리부", "variants": [{"year": "2019", "name": "더 뉴 말리부", "black": "O", "brown": "", "option": "", "trunk": ""}]}, {"model": "트랙스 크로스오버", "variants": [{"year": "2023+", "name": "트랙스 크로스오버", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문 불가"}]}]}], "import": [{"brand": "테슬라", "groups": [{"model": "모델 Y", "variants": [{"year": "2021 ~ 2024", "name": "모델 Y", "black": "O", "brown": "", "option": "", "trunk": "트렁크 주문불가"}, {"year": "2025+", "name": "모델 Y 주니퍼 5인", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2026+", "name": "모델 YL 6인", "black": "O", "brown": "", "option": "3열까지 주문 가능", "trunk": "트렁크 가능"}]}, {"model": "모델3", "variants": [{"year": "2024+", "name": "모델3 하이랜드", "black": "O", "brown": "", "option": "모델3 주문불가", "trunk": "트렁크 주문불가"}]}]}, {"brand": "벤츠", "groups": [{"model": "E클래스", "variants": [{"year": "2024. 01~", "name": "E클래스 11세대 (W214)", "black": "O", "brown": "O", "option": "", "trunk": "트렁크 가능"}]}, {"model": "GLC", "variants": [{"year": "2023. 06~", "name": "GLC 2세대 (X254 / C254)", "black": "O", "brown": "", "option": "일반 / 쿠페 호환 (EV 주문불가)", "trunk": "트렁크 가능 (쿠페, EV 주문불가)"}]}, {"model": "GLE 쿠페", "variants": [{"year": "2020. 10~", "name": "GLE 쿠페 4세대 (C293)", "black": "O", "brown": "", "option": "GLE 주문불가 (호환X)", "trunk": "트렁크 가능"}]}]}, {"brand": "BMW", "groups": [{"model": "3시리즈", "variants": [{"year": "2019 ~ 2025", "name": "3시리즈 (G20 / G21) F/L", "black": "O", "brown": "", "option": "I3 (NA0) 주문불가", "trunk": "트렁크 가능"}]}, {"model": "5시리즈", "variants": [{"year": "2023+", "name": "I5 / 5시리즈 세단 8세대 (G60)", "black": "O", "brown": "O", "option": "", "trunk": "트렁크 가능"}]}, {"model": "7시리즈", "variants": [{"year": "2023+", "name": "I7 / 7시리즈 롱바디 7세대 (G70)", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "7시리즈 프리미엄 (일반시트)", "black": "O", "brown": "", "option": "일반시트", "trunk": "트렁크 가능"}, {"year": "2023+", "name": "7시리즈 프리미엄 (라운지시트)", "black": "O", "brown": "", "option": "라운지시트 적용", "trunk": ""}]}, {"model": "iX", "variants": [{"year": "2021+", "name": "IX (i20) F/L = iX 40 / ix 50 / ix60 / (i20) F/L => 호환", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "X1", "variants": [{"year": "2023+", "name": "X1 3세대 (U11)", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "X2", "variants": [{"year": "2024. 04~", "name": "X2 2세대 (U10)", "black": "O", "brown": "", "option": "", "trunk": "트렁크 가능"}]}, {"model": "X3", "variants": [{"year": "2025+", "name": "X3 (G45)", "black": "O", "brown": "", "option": "M (F97) 주문불가", "trunk": "트렁크 가능"}]}, {"model": "X5", "variants": [{"year": "2019 ~ 2026", "name": "X5 4세대 (G05) F/L호환 <5인승 / 7인승>", "black": "O", "brown": "O", "option": "M (F95) 주문불가", "trunk": "트렁크 가능 (5, 7인 기재 필수)"}]}, {"model": "X6", "variants": [{"year": "2020 ~ 2026", "name": "X6 3세대 (G06)", "black": "O", "brown": "", "option": "M (F96) 주문불가", "trunk": "트렁크 가능"}]}, {"model": "X7", "variants": [{"year": "2019 ~ 2026", "name": "X7 6인 (G07) F/L호환", "black": "O", "brown": "", "option": "3열까지 주문가능 <인승수 기재 필수!>", "trunk": "트렁크 가능 (6, 7인 호환)"}, {"year": "2019 ~ 2026", "name": "X7 7인 (G07) F/L호환", "black": "O", "brown": "", "option": "3열까지 주문가능 <인승수 기재 필수!>", "trunk": "트렁크 가능 (6, 7인 호환)"}]}]}, {"brand": "토요타", "groups": [{"model": "RAV4", "variants": [{"year": "2026. 06~", "name": "RAV4 플러그인 하이브리드 6세대", "black": "O", "brown": "O", "option": "", "trunk": ""}]}]}], "upcoming": ["GLE", "S클래스 롱바디", "BYD 씨라이언6", "스타리아 EV 11인 라운지 1+2열", "BMW ix3"]}, "detailImage": "images/f59483d4dfaa.jpg"}, {"id": "honeycomb", "name": "벌집매트", "tagline": "분리 세척되는 초경량 매트", "cover": "images/e7a9913e39dc.jpg", "tileColor": "#F5EEE1", "specs": [{"label": "소재", "value": "EVA (초경량)"}, {"label": "구조", "value": "2중 구조 — 상판 · 하판 분리 세척"}, {"label": "차종 대응", "value": "전차종 제작 가능"}], "features": [{"icon": "layers", "label": "2중 분리 구조", "desc": "상판과 하판을 분리해 각각 세척할 수 있습니다."}, {"icon": "feather", "label": "EVA 초경량", "desc": "가벼운 소재로 탈부착과 세척이 편리합니다."}, {"icon": "car", "label": "전차종 제작", "desc": "차종 제한 없이 주문 제작이 가능합니다."}], "note": "가볍고 세척이 쉬운 대신, 내구성은 다른 라인 대비 다소 약한 편입니다.", "products": [{"id": "main", "name": "벌집카매트", "thumb": "images/2e30dca8f6cd.jpg", "detail": "images/e7a9913e39dc.jpg", "gallery": ["images/245f745ec9b0.jpg"]}]}, {"id": "etc", "name": "기타용품", "tagline": "라인업을 채워가는 중입니다", "cover": "images/7688410571fc.jpg", "tileColor": "#ECECEE", "products": [{"id": "duster", "name": "먼지털이개", "status": "available", "tall": true, "specs": [{"label": "소재", "value": "양모(Wool) 파이버"}, {"label": "크기", "value": "전장 16cm · 손잡이 10cm — 콤팩트 사이즈"}, {"label": "용도", "value": "송풍구 · 대시보드 등 차량 내부 먼지 제거"}], "thumb": "images/e239cf80c73c.jpg", "detail": "images/c045a5894d8a.jpg"}, {"id": "towel", "name": "세차 타올", "status": "available", "tall": true, "specs": [{"label": "소재", "value": "마이크로파이버"}, {"label": "크기", "value": "160 x 60cm — 특대형 사이즈"}, {"label": "색상", "value": "퍼플 · 브라운 · 블루 (3colors)"}, {"label": "용도", "value": "본네트 · 지붕 · 트렁크 등 넓은 면적 물기 제거"}], "thumb": "images/ec0185ebe1a0.jpg", "detail": "images/9dc65134ccf6.jpg"}, {"id": "wiper", "name": "와이퍼", "status": "preparing"}, {"id": "neckpillow", "name": "목베개", "status": "preparing"}, {"id": "plate", "name": "차량용 핸드폰 번호판", "status": "preparing"}]}]}</script>
 <script>
 (function(){
   const CATALOG = JSON.parse(document.getElementById('catalog-data').textContent);
@@ -695,7 +799,316 @@
     `;
   }
 
+  /* ===================== 3D TPE vehicle selector ===================== */
+  const VS_LOGO = {
+    '현대': 'hyundai', '기아': 'kia', '르노': 'renault', '쉐보레': 'chevrolet',
+    '테슬라': 'tesla', 'BMW': 'bmw', '토요타': 'toyota'
+  };
+  const vsEsc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const vsClean = s => String(s || '').replace(/</g, '(').replace(/>/g, ')');
+  function vsLogo(brand){
+    const slug = VS_LOGO[brand];
+    const badge = `<span class="vs-logo-badge">${vsEsc(brand)}</span>`;
+    if (!slug) return `<span class="vs-logo">${badge}</span>`;
+    return `<span class="vs-logo"><img src="images/logos/${slug}.svg" alt="${vsEsc(brand)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'vs-logo-badge',textContent:this.alt}))"></span>`;
+  }
+  function vsFuels(v){
+    const t = (v.name + ' ' + v.option).replace(/하브/g, '하이브리드');
+    const out = [];
+    if (/플러그인/.test(t)) out.push('플러그인 하이브리드');
+    if (/가솔린/.test(t)) out.push('가솔린');
+    if (/디젤/.test(t)) out.push('디젤');
+    if (/LPG/.test(t)) out.push('LPG');
+    if (/하이브리드/.test(t) && !/플러그인/.test(t)) out.push('하이브리드');
+    if (/넥쏘/.test(v.name)) out.push('수소');
+    else if (/(^|\s)EV(\s|$)|EV\d|아이오닉|^I\d|iX|IX/.test(v.name)) out.push('전기(EV)');
+    return out;
+  }
+  function vsSeats(v){
+    const t = (v.name + ' ' + v.option).replace(/1\+2열/g, '');
+    const s = new Set();
+    (t.match(/(\d{1,2})\s*인/g) || []).forEach(m => s.add(parseInt(m) + '인'));
+    return [...s].sort((a, b) => parseInt(a) - parseInt(b));
+  }
+  const vsTrunkOk = v => !!v.trunk && /가능/.test(v.trunk) && !/^트렁크 주문 ?불가/.test(v.trunk);
+  const vsTrunkWord = v => /적재함/.test(v.trunk) ? '적재함' : '트렁크';
+  const vsUnavailable = v => /현재 주문 불가|준비중/.test(v.name + ' ' + v.option);
+  const vsBrownOk = v => !!v.brown && v.brown !== 'X';
+  const vsThirdRow = v => /3열/.test(v.option) || vsSeats(v).some(s => parseInt(s) >= 6) || /카니발|스타리아|EV9|아이오닉9/.test(v.name);
+  function vsCheckNotes(v){
+    const t = v.option + ' ' + v.trunk, out = [];
+    if (/고리 유\/무/.test(t)) out.push('2열 고리 유/무');
+    if (/스피커옵션/.test(t)) out.push('트렁크 스피커 옵션 유/무');
+    if (/컴포트옵션/.test(t)) out.push('컴포트 옵션 유/무');
+    if (/<숏>|<롱>|\(숏\)|\(롱\)/.test(t)) out.push('적재함 숏 / 롱');
+    if (/구형.*신형|신형.*구형/.test(t) && /아이오닉9/.test(v.name)) out.push('구형(25년~26년 2월) / 신형(26년 3월~) 여부');
+    if (/그물망/.test(t)) out.push('트렁크 오른쪽 그물망 유/무');
+    if (/폴딩/.test(t) && /자동 폴딩/.test(t)) out.push('2열 시트 자동 / 수동 폴딩');
+    return out;
+  }
+
+  const VS = { tab: 'domestic', q: '', open: {}, model: null, variant: null, form: {} };
+
+  function vsAll(cat){
+    const d = cat.vehicleData; let n = 0;
+    ['domestic', 'import'].forEach(k => d[k].forEach(b => b.groups.forEach(g => n += g.variants.length)));
+    return n;
+  }
+
+  function vsBanner(cat){
+    const n = vsAll(cat);
+    return `
+    <section class="vs-banner" aria-label="주문 가능 차종 확인">
+      <div class="vs-banner-txt">
+        <span class="vs-banner-eb">STEP 1 · 주문 전 필수 확인</span>
+        <h3>내 차, 주문 가능한지<br>먼저 확인하세요</h3>
+        <p>국산·수입 ${n}개 차종 · 차종을 고르면 카카오톡 문의 내용이 자동으로 만들어집니다</p>
+        <button type="button" class="vs-banner-btn" data-vs-act="scroll">주문 가능 차종 확인하기
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="vs-banner-art" aria-hidden="true">${ICONS.car}</div>
+    </section>`;
+  }
+
+  function vsMatch(v, g, b){
+    if (!VS.q) return true;
+    const q = VS.q.replace(/\s/g, '').toLowerCase();
+    return (b.brand + g.model + v.name + v.year).replace(/\s/g, '').toLowerCase().includes(q);
+  }
+
+  function vsList(cat){
+    const d = cat.vehicleData;
+    const kinds = VS.q ? ['domestic', 'import'] : [VS.tab];
+    let html = '';
+    kinds.forEach(kind => d[kind].forEach((b, bi) => {
+      const groups = b.groups.map(g => ({ g, vs: g.variants.filter(v => vsMatch(v, g, b)) })).filter(x => x.vs.length);
+      if (!groups.length) return;
+      const key = kind + ':' + b.brand;
+      const open = VS.q ? true : (VS.open[key] !== undefined ? VS.open[key] : bi === 0);
+      const count = groups.reduce((a, x) => a + x.vs.length, 0);
+      html += `
+      <div class="vs-brand${open ? ' open' : ''}">
+        <button type="button" class="vs-brand-head" data-vs-act="brand" data-key="${vsEsc(key)}" aria-expanded="${open}">
+          ${vsLogo(b.brand)}<b>${vsEsc(b.brand)}</b><span class="vs-count">${groups.length}개 차종 · ${count}개 사양</span>
+          <svg class="vs-chev" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="vs-models">${groups.map(({ g, vs }) => {
+          const mk = key + ':' + g.model;
+          const years = [...new Set(vs.map(v => v.year).filter(Boolean))];
+          const sel = VS.model === mk;
+          return `
+          <div class="vs-model${sel ? ' sel' : ''}">
+            <button type="button" class="vs-model-head" data-vs-act="model" data-key="${vsEsc(mk)}" aria-expanded="${sel}">
+              <span class="vs-model-name">${vsEsc(g.model)}</span>
+              <span class="vs-model-meta">${vs.length}개 사양${years.length ? ' · ' + vsEsc(years.slice(0, 3).join(', ')) + (years.length > 3 ? ' 외' : '') : ''}</span>
+              <svg class="vs-chev" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            ${sel ? `<div class="vs-variants">${vs.map(v => {
+              const idx = g.variants.indexOf(v);
+              const na = vsUnavailable(v);
+              return `
+              <button type="button" class="vs-variant${na ? ' na' : ''}" data-vs-act="variant" data-kind="${kind}" data-brand="${vsEsc(b.brand)}" data-model="${vsEsc(g.model)}" data-idx="${idx}" ${na ? 'disabled' : ''}>
+                <span class="vs-v-top"><span class="vs-v-year">${vsEsc(v.year || '연식 확인')}</span>${na ? '<span class="vs-tag gray">준비중</span>' : ''}</span>
+                <span class="vs-v-name">${vsEsc(vsClean(v.name))}</span>
+                <span class="vs-v-chips">
+                  <span class="vs-chip"><i style="background:#242424"></i>블랙</span>
+                  ${vsBrownOk(v) ? `<span class="vs-chip"><i style="background:#6b4a34"></i>브라운${v.brown !== 'O' ? ' (' + vsEsc(vsClean(v.brown)) + ')' : ''}</span>` : '<span class="vs-chip off">브라운 불가</span>'}
+                  <span class="vs-chip ${vsTrunkOk(v) ? '' : 'off'}">${vsTrunkWord(v)} ${vsTrunkOk(v) ? '가능' : '불가'}</span>
+                </span>
+                ${v.option ? `<span class="vs-v-note">${vsEsc(vsClean(v.option))}</span>` : ''}
+                ${!na ? '<span class="vs-v-cta">이 차종으로 문의하기 →</span>' : ''}
+              </button>`;
+            }).join('')}</div>` : ''}
+          </div>`;
+        }).join('')}</div>
+      </div>`;
+    }));
+    return html || `<p class="vs-empty">검색 결과가 없습니다. 목록에 없는 차종도 카카오톡으로 문의해 주세요.</p>`;
+  }
+
+  function vsSelector(cat){
+    const d = cat.vehicleData;
+    const cnt = k => d[k].reduce((a, b) => a + b.groups.length, 0);
+    return `
+    <section class="vs" id="vs">
+      <div class="vs-head">
+        <h3>주문 가능 차종 확인</h3>
+        <ol class="vs-steps"><li class="on">차종 선택</li><li>상세 정보 입력</li><li>카카오톡 문의</li></ol>
+      </div>
+      <label class="vs-search">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M14 14l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="search" id="vs-q" placeholder="차종 검색 (예: 쏘렌토, 아이오닉, X5)" value="${vsEsc(VS.q)}" aria-label="차종 검색">
+      </label>
+      <div class="vs-tabs" role="tablist" ${VS.q ? 'hidden' : ''}>
+        <button type="button" role="tab" class="${VS.tab === 'domestic' ? 'on' : ''}" data-vs-act="tab" data-tab="domestic">국산차 <span>${cnt('domestic')}</span></button>
+        <button type="button" role="tab" class="${VS.tab === 'import' ? 'on' : ''}" data-vs-act="tab" data-tab="import">수입차 <span>${cnt('import')}</span></button>
+      </div>
+      <div id="vs-list">${vsList(cat)}</div>
+      ${d.upcoming && d.upcoming.length ? `<div class="vs-upcoming"><b>추가 예정 차종</b><span>${d.upcoming.map(vsEsc).join(' · ')}</span></div>` : ''}
+      <p class="vs-foot">목록에 없는 차종이나 연식이 애매한 경우에도 카카오톡으로 편하게 문의해 주세요.</p>
+    </section>
+    <div class="vs-sheet" id="vs-sheet" hidden></div>
+    <div class="vs-toast" id="vs-toast" role="status" aria-live="polite"></div>`;
+  }
+
+  function vsChips(name, opts, val, extra){
+    return `<div class="vs-opts">${opts.map(o => `<button type="button" class="vs-opt${val === o ? ' on' : ''}" data-vs-act="pick" data-f="${name}" data-v="${vsEsc(o)}" ${extra && extra[o] ? 'disabled' : ''}>${vsEsc(o)}</button>`).join('')}</div>`;
+  }
+
+  function vsMessage(){
+    const { variant: v, form: f } = VS; if (!v) return '';
+    const comp = ['1열', '2열', '3열', 'trunk'].filter(k => f.comp && f.comp[k]).map(k => k === 'trunk' ? vsTrunkWord(v.v) : k).join(' + ');
+    const L = [
+      '[3D TPE 카매트 주문 문의]',
+      '━━━━━━━━━━━━',
+      `▪ 제조사: ${v.brand}`,
+      `▪ 차종: ${vsClean(v.v.name)}`,
+      `▪ 차종표 연식: ${v.v.year || '-'}`,
+      `▪ 실제 연식: ${f.year || '(미입력)'}`,
+      `▪ 연료: ${f.fuel || '(미선택)'}`,
+      `▪ 인승: ${f.seat || '(미선택)'}`,
+      `▪ 구동: ${f.drive || '모름'}`,
+      `▪ 구성: ${comp || '(미선택)'}`,
+      `▪ 컬러: ${f.color || '(미선택)'}`,
+    ];
+    const notes = vsCheckNotes(v.v);
+    if (notes.length) L.push(`▪ 확인사항: ${f.check ? f.check : '(답변 필요: ' + notes.join(', ') + ')'}`);
+    if (f.memo) L.push(`▪ 요청사항: ${f.memo}`);
+    L.push('━━━━━━━━━━━━', '위 차량으로 주문 가능 여부 확인 부탁드립니다.');
+    return L.join('\n');
+  }
+
+  function vsMissing(){
+    const f = VS.form, m = [];
+    if (!f.year) m.push('실제 연식'); if (!f.fuel) m.push('연료'); if (!f.seat) m.push('인승');
+    if (!f.comp || !Object.values(f.comp).some(Boolean)) m.push('구성'); if (!f.color) m.push('컬러');
+    if (VS.variant && vsCheckNotes(VS.variant.v).length && !f.check) m.push('확인사항');
+    return m;
+  }
+
+  function vsSheet(){
+    const { variant: s, form: f } = VS; const v = s.v;
+    const fuels = s.brand === '테슬라' ? ['전기(EV)'] : vsFuels(v); const fuelOpts = fuels.length ? fuels : ['가솔린', '디젤', 'LPG', '하이브리드', '전기(EV)'];
+    const seats = vsSeats(v); const seatOpts = seats.length ? seats.concat(['기타']) : ['5인', '7인', '9인', '기타'];
+    const notes = vsCheckNotes(v);
+    const miss = vsMissing();
+    return `
+    <div class="vs-sheet-bg" data-vs-act="close"></div>
+    <div class="vs-sheet-panel" role="dialog" aria-modal="true" aria-label="상세 정보 입력">
+      <div class="vs-sheet-top">
+        <ol class="vs-steps"><li class="done">차종 선택</li><li class="on">상세 정보 입력</li><li>카카오톡 문의</li></ol>
+        <button type="button" class="vs-x" data-vs-act="close" aria-label="닫기"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      </div>
+      <div class="vs-sel">
+        ${vsLogo(s.brand)}
+        <div><div class="vs-sel-b">${vsEsc(s.brand)} · ${vsEsc(v.year || '')}</div><div class="vs-sel-n">${vsEsc(vsClean(v.name))}</div></div>
+      </div>
+      ${(v.option || v.trunk) ? `<div class="vs-notice"><b>차종표 안내</b>${v.option ? `<span>${vsEsc(vsClean(v.option))}</span>` : ''}${v.trunk ? `<span>${vsEsc(vsClean(v.trunk))}</span>` : ''}</div>` : ''}
+      <div class="vs-field"><label for="vs-year">실제 연식 <em>필수</em></label>
+        <input id="vs-year" data-vs-in="year" type="text" placeholder="예: 2024년 3월 (자동차등록증 최초등록일)" value="${vsEsc(f.year || '')}"></div>
+      <div class="vs-field"><span class="vs-lab">연료 <em>필수</em></span>${vsChips('fuel', fuelOpts, f.fuel)}</div>
+      <div class="vs-field"><span class="vs-lab">인승 <em>필수</em></span>${vsChips('seat', seatOpts, f.seat)}</div>
+      <div class="vs-field"><span class="vs-lab">구동 방식</span>${vsChips('drive', ['2륜', '4륜', '모름'], f.drive)}</div>
+      <div class="vs-field"><span class="vs-lab">구성 <em>필수</em></span>
+        <div class="vs-opts">
+          ${[['1열', '1열 (운전석+조수석)', true], ['2열', '2열', true], ['3열', '3열', vsThirdRow(v)], ['trunk', vsTrunkWord(v), vsTrunkOk(v)]].map(([k, lab, ok]) =>
+            `<button type="button" class="vs-opt${f.comp && f.comp[k] ? ' on' : ''}" data-vs-act="comp" data-k="${k}" ${ok ? '' : 'disabled'}>${vsEsc(lab)}${ok ? '' : ' 불가'}</button>`).join('')}
+        </div></div>
+      <div class="vs-field"><span class="vs-lab">컬러 <em>필수</em></span>${vsChips('color', ['블랙', '브라운'], f.color, { '브라운': !vsBrownOk(v) })}
+        ${vsBrownOk(v) && v.brown !== 'O' ? `<p class="vs-hint">브라운: ${vsEsc(vsClean(v.brown))}</p>` : ''}</div>
+      ${notes.length ? `<div class="vs-field"><label for="vs-check">확인사항 답변 <em>필수</em></label>
+        <p class="vs-hint">이 차종은 아래 내용을 함께 알려주셔야 정확한 제작이 가능합니다.<br>· ${notes.map(vsEsc).join('<br>· ')}</p>
+        <input id="vs-check" data-vs-in="check" type="text" placeholder="예: ${vsEsc(notes[0])} → 있음" value="${vsEsc(f.check || '')}"></div>` : ''}
+      <div class="vs-field"><label for="vs-memo">요청사항</label>
+        <input id="vs-memo" data-vs-in="memo" type="text" placeholder="궁금하신 점을 적어주세요 (선택)" value="${vsEsc(f.memo || '')}"></div>
+      <div class="vs-preview"><div class="vs-preview-h">카카오톡에 붙여넣을 내용</div><pre id="vs-msg">${vsEsc(vsMessage())}</pre></div>
+      <p class="vs-miss" id="vs-miss">${miss.length ? '아직 입력하지 않은 항목: ' + miss.join(', ') : '모든 필수 항목을 입력했습니다.'}</p>
+      <button type="button" class="vs-kakao" data-vs-act="kakao">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C6.75 4 2.5 7.24 2.5 11.24c0 2.55 1.72 4.79 4.32 6.07-.19.72-.69 2.58-.79 2.98-.12.5.18.5.38.36.16-.11 2.53-1.72 3.56-2.42.66.1 1.34.15 2.03.15 5.25 0 9.5-3.24 9.5-7.14C21.5 7.24 17.25 4 12 4z"/></svg>
+        내용 복사하고 카카오톡 문의하기</button>
+      <p class="vs-help">버튼을 누르면 위 내용이 복사되고 카카오톡 채널 상담창이 열립니다. 채팅창에 <b>붙여넣기</b> 후 전송해 주세요.</p>
+    </div>`;
+  }
+
+  function vsRefreshSheetText(){
+    const pre = document.getElementById('vs-msg'); if (pre) pre.textContent = vsMessage();
+    const m = document.getElementById('vs-miss'); const miss = vsMissing();
+    if (m) m.textContent = miss.length ? '아직 입력하지 않은 항목: ' + miss.join(', ') : '모든 필수 항목을 입력했습니다.';
+  }
+  function vsOpenSheet(){
+    const el = document.getElementById('vs-sheet'); el.innerHTML = vsSheet(); el.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function vsRenderSheet(){ const el = document.getElementById('vs-sheet'); if (el && !el.hidden) { const st = el.querySelector('.vs-sheet-panel').scrollTop; el.innerHTML = vsSheet(); el.querySelector('.vs-sheet-panel').scrollTop = st; } }
+  function vsCloseSheet(){ const el = document.getElementById('vs-sheet'); if (el) { el.hidden = true; el.innerHTML = ''; } document.body.style.overflow = ''; }
+  function vsToast(t){ const el = document.getElementById('vs-toast'); if (!el) return; el.textContent = t; el.classList.add('on'); clearTimeout(vsToast._t); vsToast._t = setTimeout(() => el.classList.remove('on'), 3200); }
+  async function vsCopy(text){
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e2) {} ta.remove(); return ok;
+    }
+  }
+
+  function vsBind(cat){
+    const root2 = document.getElementById('view-root');
+    const relist = () => { const l = document.getElementById('vs-list'); if (l) l.innerHTML = vsList(cat); const t = root2.querySelector('.vs-tabs'); if (t) t.hidden = !!VS.q; };
+    const q = document.getElementById('vs-q');
+    if (q) q.addEventListener('input', () => { VS.q = q.value.trim(); relist(); });
+    root2.onclick = async (e) => {
+      const b = e.target.closest('[data-vs-act]'); if (!b) return;
+      const act = b.dataset.vsAct;
+      if (act === 'scroll') { document.getElementById('vs').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+      if (act === 'tab') { VS.tab = b.dataset.tab; VS.model = null; root2.querySelectorAll('.vs-tabs button').forEach(x => x.classList.toggle('on', x === b)); relist(); return; }
+      if (act === 'brand') { const k = b.dataset.key; const cur = b.closest('.vs-brand').classList.contains('open'); VS.open[k] = !cur; relist(); return; }
+      if (act === 'model') { const k = b.dataset.key; VS.model = VS.model === k ? null : k; relist(); return; }
+      if (act === 'variant') {
+        const kind = b.dataset.kind, brand = b.dataset.brand, model = b.dataset.model, idx = +b.dataset.idx;
+        const bl = cat.vehicleData[kind].find(x => x.brand === brand); const g = bl.groups.find(x => x.model === model); const v = g.variants[idx];
+        VS.variant = { brand, model, v };
+        const fu = brand === '테슬라' ? ['전기(EV)'] : vsFuels(v), se = vsSeats(v);
+        VS.form = { comp: { '1열': true, '2열': true }, fuel: fu.length === 1 ? fu[0] : '', seat: se.length === 1 ? se[0] : '', color: vsBrownOk(v) ? '' : '블랙', drive: /2륜/.test(v.name) ? '2륜' : (/4륜/.test(v.name) ? '4륜' : '') };
+        vsOpenSheet(); return;
+      }
+      if (act === 'close') { vsCloseSheet(); return; }
+      if (act === 'pick') { VS.form[b.dataset.f] = VS.form[b.dataset.f] === b.dataset.v ? '' : b.dataset.v; vsRenderSheet(); return; }
+      if (act === 'comp') { VS.form.comp = VS.form.comp || {}; VS.form.comp[b.dataset.k] = !VS.form.comp[b.dataset.k]; vsRenderSheet(); return; }
+      if (act === 'kakao') {
+        const miss = vsMissing();
+        if (miss.length && !confirm('아직 입력하지 않은 항목이 있습니다: ' + miss.join(', ') + '\n그래도 문의하시겠어요?')) return;
+        const ok = await vsCopy(vsMessage());
+        vsToast(ok ? '문의 내용이 복사되었습니다. 카카오톡 채팅창에 붙여넣기 해주세요.' : '복사에 실패했습니다. 미리보기 내용을 길게 눌러 복사해 주세요.');
+        const url = CATALOG.kakaoChatUrl; if (url) setTimeout(() => window.open(url, '_blank', 'noopener'), ok ? 600 : 1500);
+        return;
+      }
+    };
+    root2.oninput = (e) => {
+      const i = e.target.closest('[data-vs-in]'); if (!i) return;
+      VS.form[i.dataset.vsIn] = i.value; vsRefreshSheetText();
+    };
+    document.onkeydown = (e) => { if (e.key === 'Escape') vsCloseSheet(); };
+  }
+
+  function renderVehicleCategory(cat){
+    document.title = `${cat.name} · 오토씨앤씨`;
+    VS.model = null;
+    root.innerHTML = `
+      ${crumb([{label:'전체 카테고리', href:'#/'}, {label:cat.name}])}
+      <div class="section-head">
+        <h2>${cat.name}</h2>
+        <p>${cat.tagline}</p>
+      </div>
+      ${vsBanner(cat)}
+      ${vsSelector(cat)}
+      ${specTable(cat.specs)}
+      ${featureRow(cat.features)}
+      ${cat.detailImage ? `<div class="frame" style="margin-top:22px;"><img src="${cat.detailImage}" alt="${cat.name} 상세 이미지" loading="lazy"></div>` : ''}
+    `;
+    vsBind(cat);
+  }
+  /* =================== end 3D TPE vehicle selector =================== */
+
   function renderCategory(cat){
+    if (cat.vehicleData){ renderVehicleCategory(cat); return; }
     document.title = `${cat.name} · 오토씨앤씨`;
 
     let gridHtml;
@@ -854,6 +1267,7 @@
     if (parts[0] === 'cat' && parts[1]){
       const cat = byId(CATALOG.categories, parts[1]);
       if (!cat){ renderHome(); return; }
+      if (cat.vehicleData){ renderVehicleCategory(cat); return; }
       if (parts[2] === 'p' && parts[3]){
         const p = byId(cat.products, parts[3]);
         if (!p){ renderCategory(cat); return; }
